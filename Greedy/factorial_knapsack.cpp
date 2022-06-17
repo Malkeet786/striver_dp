@@ -1,0 +1,32 @@
+class Solution
+{
+    public:
+    //Function to get the maximum total value in the knapsack.
+    double fractionalKnapsack(int W, Item arr[], int n)
+    {
+        // Your code here
+        vector<pair<double,int>> h(n);
+        for(int i =0;i<n;i++){
+            h[i].first = (double)arr[i].value/arr[i].weight;
+            h[i].second = arr[i].weight;
+        }
+        sort(h.begin(),h.end());
+        // for(auto ele: h){
+        //     cout<<ele.first<<" "<<ele.second<<endl;
+        // }
+        double ans =0;
+        int j = n-1;
+        while(W>0){
+            ans += h[j].first * h[j].second;
+            W = W-h[j].second;
+            j--;
+        }
+        j++;
+        ans -= h[j].first * h[j].second;
+        W = W+h[j].second;
+        ans += h[j].first * W;
+        W=0;
+        return ans;
+    }
+        
+};
