@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.pug": "jade",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
+    }
+}
